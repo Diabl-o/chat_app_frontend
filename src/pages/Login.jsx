@@ -23,6 +23,7 @@ const Login = () => {
       toast.success(response.data.message);
       localStorage.setItem("accessToken", response.data.accessToken);
       localStorage.setItem("refreshToken", response.data.refreshToken);
+      navigate("/Home");
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
@@ -82,7 +83,15 @@ const Login = () => {
                 <input type="checkbox" name="ch" id="ch" className="mr-2" />
                 <span className="text-md">Remember me</span>
               </div>
-              <span className="font-bold text-md">Forgot password?</span>
+              <span className="font-bold text-md">
+                {" "}
+                <a
+                  className=" hover:cursor-pointer"
+                  onClick={() => navigate("/forgot-password")}
+                >
+                  Forgot password?
+                </a>
+              </span>
             </div>
             <button
               type="submit"

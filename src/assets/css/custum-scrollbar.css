@@ -1,0 +1,17 @@
+.thin-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+  }
