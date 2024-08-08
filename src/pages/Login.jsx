@@ -5,9 +5,12 @@ import googleLogo from "../assets/google.svg";
 import loginImage from "../assets/loginbg.jpg";
 import { API } from "../services/api";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { setToken } from "../redux/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -21,6 +24,7 @@ const Login = () => {
     try {
       const response = await API.post("/auth/login", data);
       toast.success(response.data.message);
+      dispatch(setToken(response.data));
       localStorage.setItem("accessToken", response.data.accessToken);
       localStorage.setItem("refreshToken", response.data.refreshToken);
       navigate("/Home");
